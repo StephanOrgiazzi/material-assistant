@@ -12,10 +12,11 @@ $(function() {
     var jsonWeatherUrl = "https://fcc-weather-api.glitch.me/api/current?lat=" + lat + "&lon=" + long;
     $.getJSON(jsonWeatherUrl, function(data) {
       var weatherStatus = data.weather[0].main.toLowerCase();
+      console.log(weatherStatus);
       $('.city').html('<p class="city title">' + data.name + ', ' + data.sys.country + '</p>');
       $('.temperature').html('<p class="celsius">' + Math.round(data.main.temp) + '°C</p>');
-      $('.weather-status').html('<p>' + now + ', ' + weatherStatus + '</p>');
-      $('.weather-img').html("<img src='img/weather-" + data.weather[0].main + ".png' alt='" + data.weather[0].main + "'>");
+      $('.weather-status').html('<p>' + now + ', ' + data.weather[0].main + '</p>');
+      $('.weather-img').html("<img src='img/weather-" + weatherStatus + ".png' alt='" + data.weather[0].main + "'>");
 
       var settingsUnit = "Fahrenheit";
 
