@@ -11,7 +11,7 @@ $(function() {
     var now = moment().format('dddd') + ', ' + moment().format('LT');
     var jsonWeatherUrl = "https://fcc-weather-api.glitch.me/api/current?lat=" + lat + "&lon=" + long;
     $.getJSON(jsonWeatherUrl, function(data) {
-      var weatherStatus = data.weather[0].main.toLowerCase();
+      var weatherStatus = data.weather[0].mln.toLowerCase();
       console.log(weatherStatus);
       $('.city').html('<p class="city title">' + data.name + ', ' + data.sys.country + '</p>');
       $('.temperature').html('<p class="celsius">' + Math.round(data.main.temp) + '°C</p>');
@@ -56,7 +56,7 @@ $(function() {
     }
 
     // Google Places Card
-    var jsonPlacesUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + long + "&radius=800&type=restaurant&key=AIzaSyDyNH4wEJLlgHgXPjNufjkl4wKUQs0EjnA";
+    var jsonPlacesUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + long + "&radius=800&type=restaurant&key=AIzaSyAzM12lYYK8iH7XNu981OjC_Ts13CMHRbQ";
     var proxy = 'https://cors-anywhere.herokuapp.com/'; // allows to bypass 'Access-Control-Allow-Origin' error
     var placesOutput = '';
     var rating = "";
@@ -69,7 +69,7 @@ $(function() {
           link = link.toString()
           link = link.substring(0, link.indexOf('>'));
           placesOutput += '<div class="places-wrapper">' + link + ' target="_blank"><div class="places-photo">';
-          placesOutput += '<img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=569&photoreference=' + data.results[index].photos[0].photo_reference + '&key=AIzaSyDyNH4wEJLlgHgXPjNufjkl4wKUQs0EjnA" alt="restaurant picture">';
+          placesOutput += '<img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=569&photoreference=' + data.results[index].photos[0].photo_reference + '&key=AIzaSyAzM12lYYK8iH7XNu981OjC_Ts13CMHRbQ" alt="restaurant picture">';
           placesOutput += '</div><div class="places-info">';
           placesOutput += '<p class ="places-name">' + data.results[index].name + '</p>';
           placesOutput += '<div class="places-ratings">';
@@ -120,5 +120,6 @@ $(function() {
   // Google Places API Key: AIzaSyA3gMvvY3ZubOi-FO2NZK0cEkhsHLmZ8M8
   // AIzaSyDTwHt13x3_5nn0seJGd_fKcpuep0AAxKk
   // AIzaSyDyNH4wEJLlgHgXPjNufjkl4wKUQs0EjnA
+  // AIzaSyAzM12lYYK8iH7XNu981OjC_Ts13CMHRbQ Celine
 
 });
