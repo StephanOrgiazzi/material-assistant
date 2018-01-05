@@ -11,7 +11,7 @@ $(function() {
     var now = moment().format('dddd') + ', ' + moment().format('LT');
     var jsonWeatherUrl = "https://fcc-weather-api.glitch.me/api/current?lat=" + lat + "&lon=" + long;
     $.getJSON(jsonWeatherUrl, function(data) {
-      var weatherStatus = data.weather[0].mln.toLowerCase();
+      var weatherStatus = data.weather[0].main.toLowerCase();
       console.log(weatherStatus);
       $('.city').html('<p class="city title">' + data.name + ', ' + data.sys.country + '</p>');
       $('.temperature').html('<p class="celsius">' + Math.round(data.main.temp) + '°C</p>');
@@ -121,5 +121,6 @@ $(function() {
   // AIzaSyDTwHt13x3_5nn0seJGd_fKcpuep0AAxKk
   // AIzaSyDyNH4wEJLlgHgXPjNufjkl4wKUQs0EjnA
   // AIzaSyAzM12lYYK8iH7XNu981OjC_Ts13CMHRbQ Celine
+  // AIzaSyD9T0CRtGscPS7X-jnCuqjR4XThYxFeLjo Gaspard
 
 });
